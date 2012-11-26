@@ -15,14 +15,17 @@ public class Target extends Structure {
 	public Target() {
 		score = 0;
 		hit = false;
-		hint = new Hint();
-		
+		hint = new Hint();	
 	};
 	
 	@Override
 	public void draw(Graphics g) {};
 	
-	public void incrementScore() {};	//increment by 42
+	public void incrementScore() {
+		if (hit == true) {
+			score = score + 42;
+		}
+	};	//increment by 42
 	
 	public void displayHint() {}
 

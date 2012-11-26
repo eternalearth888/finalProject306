@@ -46,11 +46,11 @@ public class GameTests {
 		
 		//Tests an invalid angle
 		game.getLauncher().getMissile().pickAngle(-80.3);
-		Assert.assertEquals(0, game.getLauncher().getMissile().getAngle());
+		Assert.assertEquals(0.0, game.getLauncher().getMissile().getAngle());
 		
 		//Tests a positive invalid angle
 		game.getLauncher().getMissile().pickAngle(375.0);
-		Assert.assertEquals(0, game.getLauncher().getMissile().getAngle());
+		Assert.assertEquals(0.0, game.getLauncher().getMissile().getAngle());
 		
 		//Tests that angle was converted to a double
 		game.getLauncher().getMissile().pickAngle(60);
@@ -64,12 +64,12 @@ public class GameTests {
 		Point p1 = game.getLauncher().getMissile().getPositionAt(0);
 		Point p2 = game.getLauncher().getMissile().getPositionAt(2);
 		Point p3 = game.getLauncher().getMissile().getPositionAt(5);
-		Assert.assertEquals(0,  p1.getX());
-		Assert.assertEquals(0,  p1.getY());
-		Assert.assertEquals(35,  p2.getX());
-		Assert.assertEquals(41,  p2.getY());
-		Assert.assertEquals(88,  p3.getX());
-		Assert.assertEquals(29,  p3.getY());
+		Assert.assertEquals(0.0,  p1.getX());
+		Assert.assertEquals(0.0,  p1.getY());
+		Assert.assertEquals(35.0,  p2.getX());
+		Assert.assertEquals(41.0,  p2.getY());
+		Assert.assertEquals(88.0,  p3.getX());
+		Assert.assertEquals(29.0,  p3.getY());
 		
 		//tests that a missile with no velocity doesn't travel (or become negative)
 		game.getLauncher().getMissile().pickAngle(60);
@@ -77,12 +77,12 @@ public class GameTests {
 		Point p4 = game.getLauncher().getMissile().getPositionAt(0);
 		Point p5 = game.getLauncher().getMissile().getPositionAt(2);
 		Point p6 = game.getLauncher().getMissile().getPositionAt(5);
-		Assert.assertEquals(0,  p4.getX());
-		Assert.assertEquals(0,  p4.getY());
-		Assert.assertEquals(0,  p5.getX());
-		Assert.assertEquals(0,  p5.getY());
-		Assert.assertEquals(0,  p6.getX());
-		Assert.assertEquals(0,  p6.getY());
+		Assert.assertEquals(0.0,  p4.getX());
+		Assert.assertEquals(0.0,  p4.getY());
+		Assert.assertEquals(0.0,  p5.getX());
+		Assert.assertEquals(0.0,  p5.getY());
+		Assert.assertEquals(0.0,  p6.getX());
+		Assert.assertEquals(0.0,  p6.getY());
 	}
 	
 	@Test

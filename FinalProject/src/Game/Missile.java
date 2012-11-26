@@ -20,15 +20,24 @@ public class Missile {
 
 	public void draw(Graphics g) {}
 	
-	public void checkValidAngle() {}
-	
 	public double getAngle() {
 		return angle;
 	}
+	
+	public boolean checkValidAngle(double a) {
+		if (a >= 0 && a <= 360) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 
-	public void pickAngle(double angle) {
-		checkValidAngle();
-		this.angle = angle;
+	public void pickAngle(double a) {
+		if (checkValidAngle(a)) {
+			angle = a;
+		} else {
+			angle = 0;
+		}
 	}
 	
 	public double getVelocity() {
@@ -44,23 +53,34 @@ public class Missile {
 	}
 
 	public double getHorizontalVelocity(double angle, double velocity) {
-		return velocity;
-		//logic in email
+		return Math.cos(Math.toRadians(angle)) * velocity;
 	}
 	
 	public double getVerticalVelocity(double angle, double velocity) {
-		return velocity;
-		//logic in email
+		return Math.sin(Math.toRadians(angle)) * velocity;
 	}
 	
 	public Point getPositionAt(double time) {
-		return point;
-		//logic in email
+		 double x = getHorizontalVelocity(angle, velocity) * time;
+         double y = getVerticalVelocity(angle, velocity) * time - 0.5 * (9.8 * time * time);
+         Point currPoint;
+         currPoint = new Point((int)Math.round(x) + point.x, (int)Math.round(y) + point.y);
+         if (currPoint.getX() < 0.0) {
+        	 currPoint.x = 0;
+         }
+         if (currPoint.getY() < 0.0) {
+        	 currPoint.y = 0;
+         }
+         return currPoint;
 	}
 
 	public void setVelocity(double velocity) {
 		this.velocity = velocity;
 	}
-	public void pickRandomVelocity() {} //be sure to recall gethoriz and getVert velocity
+	
+	//be sure to recall gethoriz and getVert velocity
+	public void pickRandomVelocity() {
+		
+	}
 
 }
