@@ -6,6 +6,7 @@
 package Game;
 import java.awt.Graphics;
 import java.awt.Point;
+import java.util.Random;
 
 
 public class Missile {
@@ -80,6 +81,12 @@ public class Missile {
 	
 	//be sure to recall gethoriz and getVert velocity
 	public void pickRandomVelocity() {
+		Random rand = new Random();
+		int newVelocity = rand.nextInt(50);
+		while(newVelocity == 0) {
+			newVelocity = rand.nextInt(50);
+		}
+		velocity = newVelocity;
 		
 	}
 
