@@ -1,25 +1,31 @@
 package GUI;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.Border;
 
 import Game.Game;
+import Game.Missile;
 
 public class ButtonPanel extends JPanel{
 	private JLabel scoreLabel = new JLabel();
 	private JLabel shotsTakenLabel = new JLabel();
 	private JLabel velocityLabel = new JLabel();
+	private InputPanel inputPanel;
+	private Game ourGame;
 	public ButtonPanel(Game ourGame) {
+		this.ourGame = ourGame;
 		setLayout(new GridLayout(0,1));
 		Border borderTurn = BorderFactory.createEtchedBorder();
 		//display angle input box
-		InputPanel inputPanel = new InputPanel(ourGame);
+		inputPanel = new InputPanel(ourGame);
 		inputPanel.setBorder(borderTurn);
 		add(inputPanel);
 		//display velocity 
@@ -61,28 +67,44 @@ public class ButtonPanel extends JPanel{
 		newGameButton.setFont(new Font("Algerian", Font.PLAIN , 16));
 		add(newGameButton);
 		newGameButton.addActionListener(new NewGameButtonListener());
-		
-
 	}
+	
+	public void update() {
+		scoreLabel.setText("Score: " + ourGame.getTarget().getScore());
+		shotsTakenLabel.setText("Shots Taken: " + ourGame.getLauncher().getShotsTaken());
+		velocityLabel.setText("Current Velocity: " + ourGame.getLauncher().getMissile().getVelocity());
+		inputPanel.update();
+	}
+	
+
+	
 	private class LaunchButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
+			double i = 0.0;
+			while(ourGame.getLauncher().getMissile().getPoint().getX() < 1080 && ourGame.getLauncher().getMissile().getPoint().getY() < 750 && ourGame.getLauncher().getMissile().getPoint().getX() > 0 && ourGame.getLauncher().getMissile().getPoint().getY() > 0) {
+				ourGame.getLauncher().getMissile().setPoint(ourGame.getLauncher().getMissile().getPositionAt(i));
+				System.out.println(ourGame.getLauncher().getMissile().getPoint().getX() + " " + ourGame.getLauncher().getMissile().getPoint().getY());
+				repaint();
+				i = i + 0.5;
+			}
 		}
 	}
 	private class NewGameButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
+			ourGame.reset();
+			update();
+			repaint();
 		}
 	}
 	private class HintButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			
+			ourGame.getTarget().getHint().pickRandomHint();
 		}
 	}
 }

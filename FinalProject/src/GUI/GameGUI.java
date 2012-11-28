@@ -14,7 +14,7 @@ public class GameGUI extends JFrame{
 	public GameGUI() {
 		setSize(new Dimension(1400, 750));
 		setTitle("Missile Shooter");
-		ScreenPanel sPanel = new ScreenPanel();
+		ScreenPanel sPanel = new ScreenPanel(ourGame);
 		Border borderTurn = BorderFactory.createEtchedBorder();
 		sPanel.setBorder(borderTurn);
 		add(sPanel, BorderLayout.CENTER);

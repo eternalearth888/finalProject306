@@ -4,22 +4,35 @@
  * Anastasia Shpurik 
  */
 package Game;
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 
 public class Missile {
 	private double angle; 		//may use int
-	private Point point = new Point(0,0);
+	private Point point = new Point(65, 495);
 	private double velocity;
 	
 	public Missile() {
 		angle = 0;
 		velocity = 35.0;
 	}
+	
+	public void reset() {
+		angle = 0;
+		velocity = 35.0;
+	}
 
-	public void draw(Graphics g) {}
+	public void draw(Graphics g) {
+		Color missileColor = new Color(20, 82, 45);
+		g.setColor(missileColor);
+		System.out.println("Redraw... " + point.x + " " + point.y);
+		g.fillOval(point.x, point.y, 45, 45);
+	}
 	
 	public double getAngle() {
 		return angle;
@@ -37,6 +50,7 @@ public class Missile {
 		if (checkValidAngle(a)) {
 			angle = a;
 		} else {
+			JOptionPane.showMessageDialog(null, "Invalid Angle, Angle now set to 0.");
 			angle = 0;
 		}
 	}

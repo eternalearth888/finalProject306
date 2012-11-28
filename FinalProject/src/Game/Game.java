@@ -9,9 +9,21 @@ package Game;
 public class Game {
 	private Launcher launcher; 
 	private Target target;
+	private Scenery scenery;
 	public Game() {
 		launcher = new Launcher();
 		target = new Target();
+		scenery = new Scenery();
+	}
+	public void reset() {
+		launcher.reset();
+		target.reset();
+	}
+	public Scenery getScenery() {
+		return scenery;
+	}
+	public void setScenery(Scenery scenery) {
+		this.scenery = scenery;
 	}
 	public Launcher getLauncher() {
 		return launcher;

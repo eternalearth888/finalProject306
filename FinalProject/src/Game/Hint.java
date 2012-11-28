@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
+import javax.swing.JOptionPane;
+
 public class Hint {
 	private ArrayList<String> hints;
 	private String returnedHint;
@@ -31,6 +33,7 @@ public class Hint {
 		Collections.shuffle(hints);
 		Random rand = new Random();
 		int index = rand.nextInt(10);
+		JOptionPane.showMessageDialog(null, hints.get(index));
 		return hints.get(index);
 	}
 	public ArrayList<String> getHints() {
