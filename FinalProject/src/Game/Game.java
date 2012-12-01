@@ -5,6 +5,8 @@
  */
 package Game;
 
+import javax.swing.JFrame;
+
 
 public class Game {
 	private Launcher launcher; 
@@ -18,6 +20,9 @@ public class Game {
 	public void reset() {
 		launcher.reset();
 		target.reset();
+	}
+	public void launcherReset() {
+		launcher.reset();
 	}
 	public Scenery getScenery() {
 		return scenery;

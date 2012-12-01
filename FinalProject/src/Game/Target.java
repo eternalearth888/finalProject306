@@ -6,6 +6,7 @@
 package Game;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 public class Target extends Structure {
 	private boolean hit;
@@ -26,28 +27,30 @@ public class Target extends Structure {
 	
 	@Override
 	public void draw(Graphics g) {
+		Graphics2D g2 = (Graphics2D)g;
+		
 		//top layer
 		Color topColor = new Color(218,112,214);
-		g.setColor(topColor);
-		g.fillRect(925, 470, 75, 50);
+		g2.setColor(topColor);
+		g2.fillRect(925, 470, 75, 50);
 
 		//middle layer
 		Color middleColor = new Color(186,85,211);
-		g.setColor(middleColor);
-		g.fillRect(900, 510, 125, 50);
+		g2.setColor(middleColor);
+		g2.fillRect(900, 510, 125, 50);
 
 		//bottom layer
 		Color bottomColor = new Color(153,50,204);
-		g.setColor(bottomColor);
-		g.fillRect(890, 560, 150, 75);
+		g2.setColor(bottomColor);
+		g2.fillRect(890, 560, 150, 75);
 
 		//strawberries
 		Color berryColor = new Color(205, 0, 0);
-		g.setColor(berryColor);
-		g.fillOval(900, 540, 20, 20);
-		g.fillOval(935, 540, 20, 20);
-		g.fillOval(970, 540, 20, 20);
-		g.fillOval(1005, 540, 20, 20);
+		g2.setColor(berryColor);
+		g2.fillOval(900, 540, 20, 20);
+		g2.fillOval(935, 540, 20, 20);
+		g2.fillOval(970, 540, 20, 20);
+		g2.fillOval(1005, 540, 20, 20);
 	};
 	
 	public void incrementScore() {
@@ -69,7 +72,7 @@ public class Target extends Structure {
 	public boolean isHit() {
 		return hit;
 	}
-
+	
 	public void setHit(boolean hit) {
 		this.hit = hit;
 	}

@@ -34,6 +34,7 @@ public class ScreenPanel extends JPanel {
 		launcher.draw(g2);
 		target.draw(g2);	
 		missile.draw(g2);
+		repaint();
 	
 	}
 

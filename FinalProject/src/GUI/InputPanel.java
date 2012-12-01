@@ -17,7 +17,8 @@ public class InputPanel extends JPanel {
 	public InputPanel(Game g) {
 		setLayout(new GridLayout(0,1));
 		ourGame = g;
-		angle = new JLabel(" " + ourGame.getLauncher().getMissile().getAngle());
+		double actAngle = ourGame.getLauncher().getMissile().getAngle();
+		angle = new JLabel(" " + actAngle);
 		angle.setFont(new Font("Algerian", Font.ITALIC, 16));
 		add(angle);
 		JLabel label = new JLabel("Enter an angle between 0 and 360: ");
@@ -33,7 +34,8 @@ public class InputPanel extends JPanel {
 	}
 	
 	public void update() {
-		angle.setText(" " + ourGame.getLauncher().getMissile().getAngle());
+		double actAngle = ourGame.getLauncher().getMissile().getAngle();
+		angle.setText(" " + actAngle);
 		angleTextField.setText("");
 	}
 	

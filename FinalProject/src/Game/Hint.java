@@ -33,7 +33,6 @@ public class Hint {
 		Collections.shuffle(hints);
 		Random rand = new Random();
 		int index = rand.nextInt(10);
-		JOptionPane.showMessageDialog(null, hints.get(index));
 		return hints.get(index);
 	}
 	public ArrayList<String> getHints() {

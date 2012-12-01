@@ -6,6 +6,7 @@
 package Game;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 
 public class Launcher extends Structure {
@@ -24,20 +25,22 @@ public class Launcher extends Structure {
 	
 	@Override
 	public void draw(Graphics g) {
-		//slingshot
-		Color slingColor = new Color(160, 82, 45);
-		g.setColor(slingColor);
-		g.fillRect(70, 530, 40, 100);
-		g.fillOval(50, 470, 90, 90);
-		g.fillRect(90, 500, 80, 30);
+		 Graphics2D g2 = (Graphics2D)g;
+		
+		//launcher
+		Color launcherColor = new Color(160, 82, 45);
+		g2.setColor(launcherColor);
+		g2.fillRect(70, 530, 40, 100);
+		g2.fillOval(50, 470, 90, 90);
+		g2.fillRect(90, 500, 80, 30);
 	}
 	
 	public int getShotsTaken() {
 		return shotsTaken;
 	}
 
-	public void setShotsTaken(int shotsTaken) {
-		this.shotsTaken = shotsTaken;
+	public void incShotsTaken() {
+		shotsTaken++;
 	}
 
 	public Missile getMissile() {

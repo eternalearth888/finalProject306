@@ -1,6 +1,5 @@
 package GUI;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,17 +7,20 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import javax.swing.border.Border;
 
 import Game.Game;
-import Game.Missile;
 
 public class ButtonPanel extends JPanel{
 	private JLabel scoreLabel = new JLabel();
 	private JLabel shotsTakenLabel = new JLabel();
 	private JLabel velocityLabel = new JLabel();
 	private InputPanel inputPanel;
+	private double i = 0.0;
+	private Timer t;
 	private Game ourGame;
 	public ButtonPanel(Game ourGame) {
 		this.ourGame = ourGame;
@@ -67,6 +69,8 @@ public class ButtonPanel extends JPanel{
 		newGameButton.setFont(new Font("Algerian", Font.PLAIN , 16));
 		add(newGameButton);
 		newGameButton.addActionListener(new NewGameButtonListener());
+		
+		t = new Timer(100, new TimerListener());
 	}
 	
 	public void update() {
@@ -82,13 +86,30 @@ public class ButtonPanel extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			double i = 0.0;
-			while(ourGame.getLauncher().getMissile().getPoint().getX() < 1080 && ourGame.getLauncher().getMissile().getPoint().getY() < 750 && ourGame.getLauncher().getMissile().getPoint().getX() > 0 && ourGame.getLauncher().getMissile().getPoint().getY() > 0) {
+			t.restart();
+			ourGame.getLauncher().incShotsTaken();
+			update();
+		}
+	}
+	
+	private class TimerListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (ourGame.getLauncher().getMissile().getPoint().getX() < 1000 && ourGame.getLauncher().getMissile().getPoint().getY() < 600 && ourGame.getLauncher().getMissile().getPoint().getX() > 0 && ourGame.getLauncher().getMissile().getPoint().getY() > 0) {
 				ourGame.getLauncher().getMissile().setPoint(ourGame.getLauncher().getMissile().getPositionAt(i));
 				System.out.println(ourGame.getLauncher().getMissile().getPoint().getX() + " " + ourGame.getLauncher().getMissile().getPoint().getY());
+				i = i + 0.05;
 				repaint();
-				i = i + 0.5;
+			} else {
+				t.stop();
+				i = 0.0;
+				ourGame.getTarget().isHit(); //need to implement
+				ourGame.getTarget().incrementScore();
+				update();
+				NextRoundPanel nrpanel = new NextRoundPanel(ourGame, velocityLabel);
+				nrpanel.setVisible(true);
 			}
+			update();
+			repaint();
 		}
 	}
 	private class NewGameButtonListener implements ActionListener {
@@ -104,7 +125,7 @@ public class ButtonPanel extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-			ourGame.getTarget().getHint().pickRandomHint();
+			JOptionPane.showMessageDialog(null, ourGame.getTarget().getHint().pickRandomHint());
 		}
 	}
 }

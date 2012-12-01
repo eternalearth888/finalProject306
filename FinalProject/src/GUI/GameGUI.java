@@ -44,7 +44,6 @@ public class GameGUI extends JFrame{
 		return item;
 	}
 
-
 	public static void main(String[] args) {
 	  GameGUI gui = new GameGUI();
 	  gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
