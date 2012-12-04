@@ -1,3 +1,8 @@
+/* Deslis, Shpurik, Hetrick, Combs
+ * Last Updated: 12/3/12
+ * 
+ */
+
 package GUI;
 
 import java.awt.Dimension;
@@ -25,6 +30,7 @@ public class NextRoundPanel extends JFrame {
 		ourGame = g;
 		this.velocityLabel = velocityLabel;
 		setSize(new Dimension(200, 300));
+		setResizable(false);
 		setTitle("Round Complete");
 		setLayout(new GridLayout(0, 1));
 		

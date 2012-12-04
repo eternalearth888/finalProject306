@@ -1,3 +1,8 @@
+/* Deslis, Shpurik, Hetrick, Combs
+ * Last Updated: 12/3/12
+ * 
+ */
+
 package GUI;
 
 import java.awt.Font;
@@ -9,6 +14,7 @@ import javax.swing.*;
 
 import Game.Game;
 
+// Panel for angle input and save
 
 public class InputPanel extends JPanel {
 	private JTextField angleTextField = new JTextField();

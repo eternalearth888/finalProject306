@@ -1,7 +1,6 @@
-/** Nicola Hetrick
- * Kira Combs
- * Maria Deslis
- * Anastasia Shpurik 
+/* Deslis, Shpurik, Hetrick, Combs
+ * Last Updated: 12/3/12
+ * 
  */
 package Game;
 import java.awt.Graphics;

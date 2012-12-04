@@ -1,7 +1,6 @@
-/** Nicola Hetrick
- * Kira Combs
- * Maria Deslis
- * Anastasia Shpurik 
+/* Deslis, Shpurik, Hetrick, Combs
+ * Last Updated: 11/27/12
+ * 
  */
 package Tests;
 
@@ -64,12 +63,13 @@ public class GameTests {
 		Point p1 = game.getLauncher().getMissile().getPositionAt(0);
 		Point p2 = game.getLauncher().getMissile().getPositionAt(2);
 		Point p3 = game.getLauncher().getMissile().getPositionAt(5);
-		Assert.assertEquals(0.0,  p1.getX());
-		Assert.assertEquals(0.0,  p1.getY());
-		Assert.assertEquals(35.0,  p2.getX());
-		Assert.assertEquals(41.0,  p2.getY());
-		Assert.assertEquals(88.0,  p3.getX());
-		Assert.assertEquals(29.0,  p3.getY());
+	
+		Assert.assertEquals(110.0,  p1.getX());
+		Assert.assertEquals(475.0,  p1.getY());
+		Assert.assertEquals(135.0,  p2.getX());
+		Assert.assertEquals(451.0,  p2.getY());
+		Assert.assertEquals(173.0,  p3.getX());
+		Assert.assertEquals(489.0,  p3.getY());
 		
 		//tests that a missile with no velocity doesn't travel (or become negative)
 		game.getLauncher().getMissile().pickAngle(60);
@@ -77,12 +77,13 @@ public class GameTests {
 		Point p4 = game.getLauncher().getMissile().getPositionAt(0);
 		Point p5 = game.getLauncher().getMissile().getPositionAt(2);
 		Point p6 = game.getLauncher().getMissile().getPositionAt(5);
-		Assert.assertEquals(0.0,  p4.getX());
-		Assert.assertEquals(0.0,  p4.getY());
-		Assert.assertEquals(0.0,  p5.getX());
-		Assert.assertEquals(0.0,  p5.getY());
-		Assert.assertEquals(0.0,  p6.getX());
-		Assert.assertEquals(0.0,  p6.getY());
+
+		Assert.assertEquals(110.0,  p4.getX());
+		Assert.assertEquals(475.0,  p4.getY());
+		Assert.assertEquals(110.0,  p5.getX());
+		Assert.assertEquals(495.0,  p5.getY());
+		Assert.assertEquals(110.0,  p6.getX());
+		Assert.assertEquals(597.0,  p6.getY());
 	}
 	
 	@Test

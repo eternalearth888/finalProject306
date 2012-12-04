@@ -1,3 +1,8 @@
+/* Deslis, Shpurik, Hetrick, Combs
+ * Last Updated: 12/3/12
+ * 
+ */
+
 package GUI;
 import java.awt.Color;
 import java.awt.Graphics;

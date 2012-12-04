@@ -1,7 +1,6 @@
-/** Nicola Hetrick
- * Kira Combs
- * Maria Deslis
- * Anastasia Shpurik 
+/* Deslis, Shpurik, Hetrick, Combs
+ * Last Updated: 12/3/12
+ * 
  */
 package Game;
 import java.util.ArrayList;
@@ -16,13 +15,13 @@ public class Hint {
 	
 	public Hint() {
 		hints = new ArrayList<String>();
-		hints.add("The closer the angle to 90 degrees, the greater the peak of its motion");
+		hints.add("The closer the angle is to 90 degrees, the greater the peak of its motion");
 		hints.add("To calculate the horizontal velocity, multiply velocity by cos(angle in radians)!");
 		hints.add("In real life situations, With constant acceleration, the distance traveled is equal to average velocity * time.");
 		hints.add("The closer the angle to 0 degrees, the lower its peak of motion.");
-		hints.add("The launch speed, angle, and the value of gravity completely determine the position and velocity at any time");
+		hints.add("The launch speed, angle, and the value of gravity determines the position and velocity at any time");
 		hints.add("Make sure to break the velocity down into horizonatal and vertical components, using cos and sin of your angle respectively");
-		hints.add("Choose a random value for time to test (it's best to start at zero) the horizontal and vertical distance traveled.");
+		hints.add("Don't fret! If you are unsure of your solution, it may be beneficial to sacrifice some health to visually see if your calculation is correct");
 		hints.add("Pick many time values and plot the horizonatal and vertical values until you can define the trajectory the missile at your angle will travel");
 		hints.add("The equation for distance traveled is distance = velocity*sin(angle)/gravity");
 		hints.add("Remember that the trajectory of a perfect projectile (over a flat surface without air resistance) is shaped as a parabola");

@@ -1,19 +1,23 @@
-/** Nicola Hetrick
- * Kira Combs
- * Maria Deslis
- * Anastasia Shpurik 
+/* Deslis, Shpurik, Hetrick, Combs
+ * Last Updated: 12/3/12
+ * 
  */
 package Game;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
 
 
 public class Launcher extends Structure {
 	private int shotsTaken;
 	private Missile missile;
+	public Image launcher;
 	
 	public Launcher() {
+		this.launcher = new ImageIcon("pictures/launcher.png").getImage();
 		shotsTaken = 0;
 		missile = new Missile();
 	}
@@ -26,13 +30,7 @@ public class Launcher extends Structure {
 	@Override
 	public void draw(Graphics g) {
 		 Graphics2D g2 = (Graphics2D)g;
-		
-		//launcher
-		Color launcherColor = new Color(160, 82, 45);
-		g2.setColor(launcherColor);
-		g2.fillRect(70, 530, 40, 100);
-		g2.fillOval(50, 470, 90, 90);
-		g2.fillRect(90, 500, 80, 30);
+		 g2.drawImage(launcher, 50, 550, null);
 	}
 	
 	public int getShotsTaken() {
