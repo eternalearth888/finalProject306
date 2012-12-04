@@ -40,8 +40,7 @@ public class InputPanel extends JPanel {
 	}
 	
 	public void update() {
-		double actAngle = ourGame.getLauncher().getMissile().getAngle();
-		angle.setText(" " + actAngle);
+		angle.setText(" " + ourGame.getLauncher().getMissile().getAngle());
 		angleTextField.setText("");
 	}
 	

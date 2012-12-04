@@ -34,6 +34,7 @@ public class WonPanel extends JFrame {
 	private JLabel scoreLabel;
 	private JLabel shotsTakenLabel;
 	private JLabel healthLabel;
+	private InputPanel inputPanel;
 	private JButton newGame;
 	private JButton exitGame;
 	private Game ourGame;
@@ -45,6 +46,7 @@ public class WonPanel extends JFrame {
 		this.scoreLabel = scoreLabel;
 		this.shotsTakenLabel = shotsTakenLabel;
 		this.healthLabel = healthLabel;
+		this.inputPanel = inputPanel;
 		setSize(new Dimension(700, 500));
 		setResizable(false);
 		setTitle("Game Complete");
@@ -103,6 +105,7 @@ public class WonPanel extends JFrame {
 			shotsTakenLabel.setText("Shots Taken: " + ourGame.getLauncher().getShotsTaken());
 			healthLabel.setText("Pony Health: " + ourGame.getLauncher().getMissile().getHealth());
 			repaint();
+			inputPanel.update();
 			setVisible(false);
 			ourGame.setWon(false);
 		}

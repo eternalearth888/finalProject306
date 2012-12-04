@@ -22,13 +22,15 @@ public class NextRoundPanel extends JFrame {
 	private JLabel shotsTaken;
 	private JLabel message;
 	private JLabel velocityLabel;
+	private InputPanel inputPanel;
 	private JButton nextRound;
 	private JButton endGame;
 	private Game ourGame;
 	
-	public NextRoundPanel(Game g, JLabel velocityLabel) {
+	public NextRoundPanel(Game g, JLabel velocityLabel, InputPanel inputPanel) {
 		ourGame = g;
 		this.velocityLabel = velocityLabel;
+		this.inputPanel = inputPanel;
 		setSize(new Dimension(200, 300));
 		setResizable(false);
 		setTitle("Round Complete");
@@ -74,6 +76,7 @@ public class NextRoundPanel extends JFrame {
 			ourGame.getLauncher().getMissile().pickRandomVelocity();
 			ourGame.getLauncher().getMissile().setDefaults();
 			velocityLabel.setText("Current Velocity: " + ourGame.getLauncher().getMissile().getVelocity());
+			inputPanel.update();
 			repaint();
 			setVisible(false);
 		}

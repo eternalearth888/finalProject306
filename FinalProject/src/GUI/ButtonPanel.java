@@ -130,8 +130,9 @@ public class ButtonPanel extends JPanel{
 					update();
 				// Next Round
 				} else {
-					NextRoundPanel nrpanel = new NextRoundPanel(ourGame, velocityLabel);
+					NextRoundPanel nrpanel = new NextRoundPanel(ourGame, velocityLabel, inputPanel);
 					nrpanel.setVisible(true);
+					update();
 				}
 			}
 			update();
@@ -158,7 +159,7 @@ public class ButtonPanel extends JPanel{
 	//After launch, checks if pony hit cake, updates accordingly
 	private void isTargetHit() {
 		if (ourGame.getTarget().getCakeSize() == 4) {
-			if (ourGame.getLauncher().getMissile().getPoint().getX() + 114 > 890 && ourGame.getLauncher().getMissile().getPoint().getY() + 50 > 370) {
+			if (ourGame.getLauncher().getMissile().getPoint().getX() + 50 > 890 && ourGame.getLauncher().getMissile().getPoint().getY() + 50 > 370) {
 				ourGame.getTarget().decCakeSize();
 				ourGame.getTarget().setHit(true);
 			} else {
@@ -166,7 +167,7 @@ public class ButtonPanel extends JPanel{
 				ourGame.getLauncher().getMissile().decHealth();
 			}
 		} else if (ourGame.getTarget().getCakeSize() == 3) {
-			if (ourGame.getLauncher().getMissile().getPoint().getX() + 114 > 890 && ourGame.getLauncher().getMissile().getPoint().getY() + 50 > 470) {
+			if (ourGame.getLauncher().getMissile().getPoint().getX() + 50 > 890 && ourGame.getLauncher().getMissile().getPoint().getY() + 50 > 470) {
 				ourGame.getTarget().decCakeSize();
 				ourGame.getTarget().setHit(true);
 			} else {
@@ -174,7 +175,7 @@ public class ButtonPanel extends JPanel{
 				ourGame.getLauncher().getMissile().decHealth();
 			}
 		} else if (ourGame.getTarget().getCakeSize() == 2) {
-			if (ourGame.getLauncher().getMissile().getPoint().getX() + 114 > 890 && ourGame.getLauncher().getMissile().getPoint().getY() + 50 > 510) {
+			if (ourGame.getLauncher().getMissile().getPoint().getX() + 50 > 890 && ourGame.getLauncher().getMissile().getPoint().getY() + 50 > 510) {
 				ourGame.getTarget().decCakeSize();
 				ourGame.getTarget().setHit(true);
 			} else {
@@ -182,7 +183,7 @@ public class ButtonPanel extends JPanel{
 				ourGame.getLauncher().getMissile().decHealth();
 			}
 		} else if (ourGame.getTarget().getCakeSize() == 1) {
-			if (ourGame.getLauncher().getMissile().getPoint().getX() + 114 > 890 && ourGame.getLauncher().getMissile().getPoint().getY() + 50 > 540) {
+			if (ourGame.getLauncher().getMissile().getPoint().getX() + 50 > 890 && ourGame.getLauncher().getMissile().getPoint().getY() + 50 > 540) {
 				ourGame.getTarget().decCakeSize();
 				ourGame.getTarget().setHit(true);
 				// Hit cake 4 times?
